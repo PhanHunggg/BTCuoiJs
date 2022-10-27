@@ -240,6 +240,7 @@ function searchEmployee() {
 }
 
 function resetForm() {
+  document.getElementById("tknv").disabled = false;
   document.getElementById("formBody").reset();
   document.getElementById("tbTKNV").style.display = "none";
   document.getElementById("tbTen").style.display = "none";
