@@ -18,7 +18,7 @@ function validate() {
     required(employeeAccount, "tbTKNV") &&
     checkAccount(employeeAccount, "tbTKNV");
   isValid &=
-    required(employeeName, "tbTen") && 
+    required(employeeName, "tbTen") &&
     checkEmployeeName(employeeName, "tbTen");
   isValid &=
     required(employeeEmail, "tbEmail") &&
@@ -26,7 +26,9 @@ function validate() {
   isValid &=
     required(employeePassword, "tbMatKhau") &&
     checkEmployeePass(employeePassword, "tbMatKhau");
-  isValid &= required(employeeDob, "tbNgay");
+  isValid &=
+    required(employeeDob, "tbNgay") && 
+    checkEmployeeDob(employeeDob, "tbNgay");
   isValid &=
     required(employeeSalary, "tbLuongCB") &&
     checkSalary(employeeSalary, "tbLuongCB");
@@ -361,5 +363,17 @@ function checkWorkingHour(value, spanId) {
   }
   document.getElementById(spanId).style.display = "inline-block";
   document.getElementById(spanId).innerHTML = "* Thời gian từ 80 - 200 giờ";
+  return false;
+}
+
+function checkEmployeeDob(value, spanId) {
+  var pattern = /^(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-]\d{4}$/g;
+  if (pattern.test(value)) {
+    document.getElementById(spanId).style.display = "none";
+    document.getElementById(spanId).innerHTML = "";
+    return true;
+  }
+  document.getElementById(spanId).style.display = "inline-block";
+  document.getElementById(spanId).innerHTML = "* mm/dd/yyyy";
   return false;
 }
