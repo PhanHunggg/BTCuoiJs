@@ -40,7 +40,7 @@ function Employee(
         return "Nhân viên khá"
     }
     if (time < 160){
-        return "Nhân viên trung Bình"
+        return "Nhân viên trung bình"
     }
   };
 }
